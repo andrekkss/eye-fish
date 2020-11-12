@@ -1,13 +1,16 @@
-var express = require("express");
-var app = express()
-let port = 3333
+const SerialPort = require('serialport');
+const Readline = require('@serialport/parser-readline');
+const tty = "/dev/ttyACM0"; 
+//O tty vario na rasp-berry para localizo:
+//ls /dev/tty*
+const port = new SerialPort(tty, { baudRate: 9600 });
+const parser = port.pipe(new Readline({ delimiter: '\n' }));
 
-app.listen(port, () => {
- console.log(`Server running on port: ${port}`);
+// Read the port data
+port.on("open", () => {
+  console.log('serial port open');
 });
 
-app.get("/url", (req, res, next) => {
-    // Devolve parametros da query ao response
-    console.log(req.query)
-    res.json(req.query)
+parser.on('data', data =>{
+  console.log('got word from arduino:', data);
 });
