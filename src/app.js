@@ -8,12 +8,19 @@ import AppBar from './components/app-bar';
 import Home from './features/home/page/home';
 import Welcome from './components/welcome';
 
+const { remote } = require('electron')
+var window = remote.getCurrentWindow()
+
 export default class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             pageRouted: Home
         };
+    }
+    
+    componentDidMount(){
+        window.maximize()
     }
 
     routePage = (page) => {
@@ -24,9 +31,6 @@ export default class App extends React.Component {
         return (
             <div>
                 <Dialog fullScreen={Boolean("true")} open={Boolean("true")}>
-                    <DialogTitle style={{padding: 0}}>
-                        <AppBar mainApp={this}></AppBar>
-                    </DialogTitle>
                     <DialogContent className={'mainContent'}>
                         <Router>
                             <Route component={this.state.pageRouted}/>

@@ -29,7 +29,7 @@ export default function Home(props){
 
     const data = [
         {
-            url: "https://www.rsdiscus.com.br/peixes-de-agua-doce/peixes-de-ph-muito-alcalino/tanganika-ciclideos-africanos/lamprologus-calvus-black-4-a-5-cm",
+            url: "https://aquaterrario.com.br/blog/wp-content/uploads/2019/03/18-03.png",
             nome: "Calvus Black",
             familia: "Cichlidae",
             origin: "África / Lago Tanganica",
@@ -43,7 +43,7 @@ export default function Home(props){
             alimentacao: "Carnívoros, na natureza se alimentam de crustáceos, larvas de insetos, moluscos e filhotes de outros peixes. Ofereça rações mais protéicas. Evite manter peixes herbívoros com outros de hábitos alimentares distintos em um mesmo aquário, o excesso de proteína animal (oferecida nas rações para os onívoros e carnívoros) prejudica a saúde do peixe herbívoro, podendo resultar em Bloat ou outras doenças!"
         },
         {
-            url: "https://www.rsdiscus.com.br/peixes-de-agua-doce/peixes-de-ph-muito-alcalino/tanganika-ciclideos-africanos/lamprologus-calvus-black-4-a-5-cm",
+            url: "https://petable.care/wp-content/uploads/2017/11/fish-1024x642.png",
             nome: "Calvus Black 1",
             familia: "Cichlidae",
             origin: "África / Lago Tanganica",
@@ -51,13 +51,13 @@ export default function Home(props){
             min_ph: 8,
             max_ph: 8.8,
             med_ph: 8.4,
-            imageUrl: "https://aquaterrario.com.br/blog/wp-content/uploads/2019/03/18-03.png",
+            imageUrl: "https://petable.care/wp-content/uploads/2017/11/fish-1024x642.png",
             durezaAgua: "Dura",
             medTamanho: "Aproximadamente 13 cm",
             alimentacao: "Carnívoros, na natureza se alimentam de crustáceos, larvas de insetos, moluscos e filhotes de outros peixes. Ofereça rações mais protéicas. Evite manter peixes herbívoros com outros de hábitos alimentares distintos em um mesmo aquário, o excesso de proteína animal (oferecida nas rações para os onívoros e carnívoros) prejudica a saúde do peixe herbívoro, podendo resultar em Bloat ou outras doenças!"
         },
         {
-            url: "https://www.rsdiscus.com.br/peixes-de-agua-doce/peixes-de-ph-muito-alcalino/tanganika-ciclideos-africanos/lamprologus-calvus-black-4-a-5-cm",
+            url: "https://www.petz.com.br/blog/wp-content/uploads/2015/06/como-vivem-os-peixes-no-aquario-2-1200x805.jpg",
             nome: "Calvus Black 2",
             familia: "Cichlidae",
             origin: "África / Lago Tanganica",
@@ -65,13 +65,13 @@ export default function Home(props){
             min_ph: 8,
             max_ph: 8.8,
             med_ph: 8.4,
-            imageUrl: "https://aquaterrario.com.br/blog/wp-content/uploads/2019/03/18-03.png",
+            imageUrl: "https://www.petz.com.br/blog/wp-content/uploads/2015/06/como-vivem-os-peixes-no-aquario-2-1200x805.jpg",
             durezaAgua: "Dura",
             medTamanho: "Aproximadamente 13 cm",
             alimentacao: "Carnívoros, na natureza se alimentam de crustáceos, larvas de insetos, moluscos e filhotes de outros peixes. Ofereça rações mais protéicas. Evite manter peixes herbívoros com outros de hábitos alimentares distintos em um mesmo aquário, o excesso de proteína animal (oferecida nas rações para os onívoros e carnívoros) prejudica a saúde do peixe herbívoro, podendo resultar em Bloat ou outras doenças!"
         },
         {
-            url: "https://www.rsdiscus.com.br/peixes-de-agua-doce/peixes-de-ph-muito-alcalino/tanganika-ciclideos-africanos/lamprologus-calvus-black-4-a-5-cm",
+            url: "https://www.iq.com.br/wp-content/uploads/2018/10/shutterstock_1162224256-770x478.jpg",
             nome: "Calvus Black 3",
             familia: "Cichlidae",
             origin: "África / Lago Tanganica",
@@ -79,7 +79,7 @@ export default function Home(props){
             min_ph: 8,
             max_ph: 8.8,
             med_ph: 8.4,
-            imageUrl: "https://aquaterrario.com.br/blog/wp-content/uploads/2019/03/18-03.png",
+            imageUrl: "https://www.iq.com.br/wp-content/uploads/2018/10/shutterstock_1162224256-770x478.jpg",
             durezaAgua: "Dura",
             medTamanho: "Aproximadamente 13 cm",
             alimentacao: "Carnívoros, na natureza se alimentam de crustáceos, larvas de insetos, moluscos e filhotes de outros peixes. Ofereça rações mais protéicas. Evite manter peixes herbívoros com outros de hábitos alimentares distintos em um mesmo aquário, o excesso de proteína animal (oferecida nas rações para os onívoros e carnívoros) prejudica a saúde do peixe herbívoro, podendo resultar em Bloat ou outras doenças!"
