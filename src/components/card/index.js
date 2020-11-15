@@ -10,12 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import { makeStyles } from '@material-ui/core/styles';
-
+import LinesEllipsis from 'react-lines-ellipsis'
+ 
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
-      marginBottom: 50,
-      marginTop: 10
     },
     media: {
       height: 0,
@@ -56,13 +55,12 @@ export default function ReviewCard(props) {
                 title={props.title}
             />
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p"> {props.description} </Typography>
+              <LinesEllipsis
+                text={props.description}
+                maxLine='3'
+                ellipsis='...'
+              />
             </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="adicionar a sua lista de peixes">
-                    <FavoriteIcon />
-                </IconButton>
-            </CardActions>
         </CardActionArea>
     </Card>
   );

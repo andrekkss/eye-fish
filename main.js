@@ -25,8 +25,8 @@ exports.execProcess = (process, callback) => {
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 480,
+    height: 320,
     
     // Caracteristicas visuais da janela
     // autoHideMenuBar: true,
