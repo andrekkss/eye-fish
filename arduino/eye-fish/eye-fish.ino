@@ -28,7 +28,7 @@ void setup() {
 
 void loop() {
     valuesFromApp();
-    if(ph_min != 0.0, ph_med != 0.0, ph_max != 0.0){
+    if(ph_min != 0.0 && ph_med != 0.0 && ph_max != 0.0){
         valueOfPh();
     }
 }
