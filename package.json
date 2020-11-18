@@ -32,7 +32,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^4.0.1",
     "jest": "^25.3.0",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "serialport": "^9.0.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.0",
