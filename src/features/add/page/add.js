@@ -1,4 +1,6 @@
 import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '../../../components/fab/index';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Card from '../../../components/card/index';
@@ -29,6 +31,7 @@ export default function Home(props){
     const classes = useStyles();
 
     const data = mockOfData;
+    const icon = <AddIcon />;
 
     return (
         <div className={classes.root}>
@@ -46,6 +49,7 @@ export default function Home(props){
                     ))}
                 </GridList>
             </div>
+            <Fab name="add" label="add" color="primary" icon={icon} />
         </div>
     );
 }

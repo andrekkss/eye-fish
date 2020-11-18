@@ -1,32 +1,111 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import { green } from '@material-ui/core/colors';
+import Box from '@material-ui/core/Box';
 import Home from './features/home/page/home';
+import Monitor from './features/monitor/page/monitor';
+import Add from './features/add/page/add';
 
-export default class App extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            pageRouted: Home
-        };
-    }
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-    routePage = (page) => {
-        this.setState({pageRouted: page})
-    }
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`action-tabpanel-${index}`}
+      aria-labelledby={`action-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box>{children}</Box>}
+    </Typography>
+  );
+}
 
-    render() {
-        return (
-            <div>
-                <Dialog fullScreen={Boolean("true")} open={Boolean("true")}>
-                    <DialogContent className={'mainContent'}>
-                        <Router>
-                            <Route component={this.state.pageRouted}/>
-                        </Router>
-                    </DialogContent>
-                </Dialog>
-            </div>
-        );
-    }
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `action-tab-${index}`,
+    'aria-controls': `action-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.paper,
+    width: '%100 !importante',
+    position: 'relative',
+    minHeight: '%100 !importante',
+  },
+  fab: {
+    position: 'absolute',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+  fabGreen: {
+    color: theme.palette.common.white,
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[600],
+    },
+  },
+}));
+
+export default function FloatingActionButtonZoom() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="action tabs example"
+        >
+          <Tab label="Monitor" {...a11yProps(0)} />
+          <Tab label="Meus Peixes" {...a11yProps(1)} />
+          <Tab label="Adicionar" {...a11yProps(2)} />
+        </Tabs>
+      </AppBar>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}>
+        <TabPanel value={value} index={0} dir={theme.direction}>
+            <Monitor/>
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+            <Home/>
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+            <Add/>
+        </TabPanel>
+      </SwipeableViews>
+    </div>
+  );
 }

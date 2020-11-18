@@ -56,7 +56,7 @@ export default function ReviewCard(props) {
             />
             <CardContent>
               <LinesEllipsis
-                text={props.description}
+                text={''}
                 maxLine='3'
                 ellipsis='...'
               />
