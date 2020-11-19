@@ -34,7 +34,7 @@ export default function Monitor(){
 
     function refresh(){
       client.onmessage = (message) => {
-        const ph = parseFloat(message)
+        const ph = parseFloat(message.data)
         setPh(ph);
         data.datasets[0].data.push({
            x: Date.now(),
