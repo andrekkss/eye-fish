@@ -2,7 +2,7 @@
 #include "Serials.h"
 #include "PhSensor.h"
 
-#define motor_pin 9
+int solenoide_pin = 9;
 int ph_pin = A0; 
 
 Servo motor;
@@ -22,20 +22,20 @@ void setup() {
     Serial.begin(9600);
     serials = Serials();
     ph_sensor = PhSensor(ph_pin);
-    motor.attach(motor_pin);
-    motor.write(0);
+//    pinMode(solenoide_pin, OUTPUT);
 }
 
 void loop() {
-    valuesFromApp();
-    if(ph_min != 0.0 && ph_med != 0.0 && ph_max != 0.0){
+//    valuesFromApp();
+//    if(ph_min != 0.0 && ph_med != 0.0 && ph_max != 0.0){
         valueOfPh();
-    }
+//    }
 }
 
 void valueOfPh(){
     ph_atual = ph_sensor.read();
-    validatePh(ph_atual);
+    Serial.println(ph_atual);
+//    validatePh(ph_atual);
 }
 
 void valuesFromApp(){
@@ -48,7 +48,7 @@ void valuesFromApp(){
 
 void validatePh(float ph){
   if(isActived == false && !(ph >= ph_min && ph <= ph_max)){
-    up(50);
+    up();
     down();
     isActived = true;
   } else {
@@ -61,12 +61,12 @@ void validatePh(float ph){
   }
 }
 
-void up(int grau){
-   motor.write(grau);              
+void up(){
+   digitalWrite(solenoide_pin, HIGH);              
    delay(500);  
 }
 
 void down(){
-    motor.write(0);              
+    digitalWrite(solenoide_pin, LOW);              
     delay(1000);                      
 }
