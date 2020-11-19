@@ -16,15 +16,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#f2f2f2",
     },
     gridList: {
-      width: '100% !important',
-      flexWrap: 'nowrap',
-      transform: 'translateZ(0)',
-      overflow: 'hidden'
+        flexWrap: 'nowrap',
+        overflowY: 'hidden'
     },
     gridListTile: {
-      height: '60% !important',
-      margin: 4
+      height: '100% !important',
+      margin: 5
     }
+    
 }));
 
 export default function Home(props){
@@ -35,7 +34,6 @@ export default function Home(props){
 
     return (
         <div className={classes.root}>
-            <div>
                 <GridList className={classes.gridList} spacing={0} cols={2.5}>
                     {data.map((fish) => (
                         <GridListTile className={classes.gridListTile} key={fish.nome}>
@@ -48,7 +46,6 @@ export default function Home(props){
                         </GridListTile>
                     ))}
                 </GridList>
-            </div>
             <Fab name="add" label="add" color="primary" icon={icon} />
         </div>
     );
