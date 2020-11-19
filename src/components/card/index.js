@@ -15,6 +15,8 @@ import LinesEllipsis from 'react-lines-ellipsis'
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
+      height: '240px',
+      overflowY: 'hidden'
     },
     media: {
       height: 0,
