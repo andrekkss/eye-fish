@@ -41,7 +41,7 @@ export default function ReviewCard(props) {
 
   return (
     <Card className={classes.root}>
-        <CardActionArea onClick={props.callback}>
+        <CardActionArea onClick={() => {props.callback(props.fish)}}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>

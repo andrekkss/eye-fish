@@ -12,6 +12,14 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(3),
   },
+  fabLeft: {
+    margin: 0,
+    top: 'auto',
+    bottom: theme.spacing(2),
+    right: theme.spacing(3),
+    left: 'auto',
+    position: 'fixed',
+  } 
 }));
 
 export default function FabButton(props) {
@@ -20,7 +28,7 @@ export default function FabButton(props) {
   return (
     <div>
       <Tooltip title={props.name} aria-label={props.label}>
-        <Fab color={props.color} className={classes.absolute}>
+        <Fab onClick={() => props.callback} color={props.color} className={ classes.absolute }>
           {props.icon}
         </Fab>
       </Tooltip>

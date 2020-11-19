@@ -3,7 +3,7 @@ const Readline = require('@serialport/parser-readline');
 const webSocketsServerPort = 8000;
 const webSocketServer = require('websocket').server;
 const http = require('http');
-const tty = "/dev/cu.usbmodem14201"; 
+const tty = "/dev/cu.usbmodem14101"; 
 //O tty vario na rasp-berry para localizo:
 //ls /dev/tty*
 const port = new SerialPort(tty, { baudRate: 9600 });
