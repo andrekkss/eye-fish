@@ -12,16 +12,15 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         backgroundColor: "#f2f2f2",
+        
     },
     gridList: {
-      width: '100% !important',
       flexWrap: 'nowrap',
-      transform: 'translateZ(0)',
-      overflow: 'hidden'
+      overflowY: 'hidden'
     },
     gridListTile: {
-      height: '60% !important',
-      margin: 4
+      height: '100% !important',
+      margin: 5
     }
 }));
 
@@ -32,8 +31,7 @@ export default function Home(props){
 
     return (
         <div className={classes.root}>
-            <div>
-                <GridList className={classes.gridList} spacing={0} cols={2.5}>
+                <GridList className={classes.gridList} spacing={0} cols={2.1}>
                     {data.map((fish) => (
                         <GridListTile className={classes.gridListTile} key={fish.nome}>
                             <Card 
@@ -45,7 +43,6 @@ export default function Home(props){
                         </GridListTile>
                     ))}
                 </GridList>
-            </div>
         </div>
     );
 }
