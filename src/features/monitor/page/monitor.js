@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import "chartjs-plugin-streaming";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const client = new W3CWebSocket('ws://127.0.0.1:8000');
+const client = new W3CWebSocket('ws://192.168.0.32:8000');
 
 const useStyles = makeStyles(() => ({
     root: {
