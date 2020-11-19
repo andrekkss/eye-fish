@@ -13,16 +13,16 @@ const int threeHoursInSeconds = 10800;
 int timerInSeconds = 0;
 boolean isActived = false;
 
-float ph_min = 0.0;
+float ph_min = 6.0;
 float ph_med = 0.0;
-float ph_max = 0.0;
+float ph_max = 9.2;
 float ph_atual = 0.0;
 
 void setup() {
     Serial.begin(9600);
     serials = Serials();
     ph_sensor = PhSensor(ph_pin);
-//    pinMode(solenoide_pin, OUTPUT);
+    pinMode(solenoide_pin, OUTPUT);
 }
 
 void loop() {
@@ -33,9 +33,15 @@ void loop() {
 }
 
 void valueOfPh(){
-    ph_atual = ph_sensor.read();
-    Serial.println(ph_atual);
-//    validatePh(ph_atual);
+    int measure = analogRead(ph_pin);
+
+    double voltage = 5 / 1024.0 * measure; //classic digital to voltage conversion
+
+    float Po = 7 + ((2.5 - voltage) / 0.18);
+ 
+    delay(1000);
+    Serial.println(Po);
+    validatePh(Po);
 }
 
 void valuesFromApp(){
@@ -63,7 +69,7 @@ void validatePh(float ph){
 
 void up(){
    digitalWrite(solenoide_pin, HIGH);              
-   delay(500);  
+   delay(2000);  
 }
 
 void down(){

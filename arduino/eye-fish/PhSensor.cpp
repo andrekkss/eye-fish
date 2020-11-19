@@ -9,12 +9,11 @@ PhSensor::PhSensor(int pin) {
 }
 
 float PhSensor::read(){
-    measure = analogRead(pin);
+    int measure = analogRead(pin);
 
-    voltage = (5 / 1024.0 * measure); 
-
-    ph = 7 + ((2.5 - voltage) / 0.18);
-
-    delay(valueOfDelay);
-    return ph;
+    double voltage = 5 / 1024.0 * measure; //classic digital to voltage conversion
+    float Po = 7 + ((2.5 - voltage) / 0.18);
+ 
+    delay(1000);
+    return Po;
 }
