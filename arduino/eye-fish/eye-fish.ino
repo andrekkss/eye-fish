@@ -3,7 +3,7 @@
 #include "PhSensor.h"
 
 int solenoide_pin = 9;
-int ph_pin = A0; 
+int ph_pin = A1; 
 
 Servo motor;
 Serials serials;
@@ -12,7 +12,7 @@ const int threeHoursInSeconds = 10800;
 int timerInSeconds = 0;
 boolean isActived = false;
 
-float ph_min = 5.5;
+float ph_min = 1.0;
 float ph_med = 0.0;
 float ph_max = 9.2;
 float ph_atual = 0.0;
@@ -62,10 +62,9 @@ void paraconsistente(float ph){
   float validadoMinimo = valida(dMinimo, dAtual, grauDeCertezaMinimo, grauDeIncertezaMinimo);
   float validadoMaximo = valida(dMaximo, dAtual, grauDeCertezaMaximo, grauDeIncertezaMaximo);
 
-  if (((validadoMinimo && validadoMaximo) || (ph < ph_min || ph > ph_max)) && !isActived) {
+  if (((validadoMinimo && validadoMaximo) || (ph < ph_min || ph > ph_max))) {
     up();
     down();
-    isActived = true;
   } else {
     timerInSeconds = timerInSeconds + 1;
     if(timerInSeconds == threeHoursInSeconds){
